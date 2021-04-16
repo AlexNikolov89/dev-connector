@@ -1,15 +1,9 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment, useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {Link, useHistory, withRouter} from 'react-router-dom'
-import { createProfile } from '../../store/actions/profileAction'
+import { createProfile, getCurrentProfile } from '../../store/actions/profileAction'
 
-
-// TODO can not create profile -> find bug
-const CreateProfile = () => {
-    const dispatch = useDispatch()
-    const history = useHistory()
-
-    const [formData, setFormData] = useState({
+const initialState = {
         company: '',
         website: '',
         location: '',
@@ -22,7 +16,36 @@ const CreateProfile = () => {
         linkedin: '',
         youtube: '',
         instagram: ''
-    })
+}
+
+// TODO can not update profile -> find bug 404
+const EditProfile = () => {
+    const dispatch = useDispatch()
+    const history = useHistory()
+
+    const userProfile = useSelector(state => state.userProfile)
+    const {profile, loading} = userProfile;
+
+    useEffect(() => {
+        if(!profile) getCurrentProfile()
+
+        setFormData({
+            company: loading || !profile.company ? '' : profile.company,
+            website: loading || !profile.website ? '' : profile.website,
+            location: loading || !profile.location ? '' : profile.location,
+            status: loading || !profile.state ? '' : profile.status,
+            skills: loading || !profile.skills ? '' : profile.skills.join(','),
+            githubusername: loading || !profile.githubusername ? '' : profile.githubusername,
+            bio: loading || !profile.bio ? '' : profile.bio,
+            twitter: loading || !profile.twitter ? '' : profile.twitter,
+            facebok: loading || !profile.facebok ? '' : profile.facebok,
+            linkedin: loading || !profile.linkedin ? '' : profile.linkedin,
+            youtube: loading || !profile.youtube ? '' : profile.youtube,
+            instagram: loading || !profile.instagram ? '' : profile.instagram
+        })
+    }, [loading, getCurrentProfile])
+
+    const [formData, setFormData] = useState(initialState)
 
     const [toggleDisplay, setToggleDisplay] = useState(false)
 
@@ -221,4 +244,5 @@ const CreateProfile = () => {
     )
 }
 
-export default CreateProfile
+export default EditProfile
+

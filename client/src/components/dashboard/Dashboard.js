@@ -3,6 +3,8 @@ import {useSelector, useDispatch} from 'react-redux'
 import { getCurrentProfile } from '../../store/actions/profileAction'
 import Spinner from '../layout/Spinner'
 import {Link} from 'react-router-dom'
+import DashboardActions from './DashboardActions'
+
 
 const Dashboard = () => {
     const dispatch = useDispatch()
@@ -12,7 +14,7 @@ const Dashboard = () => {
 
     const userProfile = useSelector(state => state.userProfile)
     const {profile, loading, error} = userProfile
-    console.log("🚀 ~ file: Dashboard.js ~ line 15 ~ Dashboard ~ userProfile", userProfile)
+    //console.log("🚀 ~ file: Dashboard.js ~ line 15 ~ Dashboard ~ userProfile", userProfile)
 
     useEffect(() => {
         dispatch(getCurrentProfile())
@@ -25,7 +27,9 @@ const Dashboard = () => {
             <i className="fas fa-user"></i>{' '}Welcome {user && user.name}
             </p>
             {profile ? 
-                <Fragment>has profile</Fragment> 
+                <Fragment>
+                    <DashboardActions />
+                </Fragment> 
                 : 
                 <Fragment>
                     <p>You have not yet setup a profile. Please add some Info</p>

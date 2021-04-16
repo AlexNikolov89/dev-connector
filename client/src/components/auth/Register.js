@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {Link, Redirect, useHistory} from 'react-router-dom'
 import {setAlert} from '../../store/actions/alertAction'
 import {useDispatch, useSelector} from 'react-redux'
 import {register} from '../../store/actions/authAction'
@@ -28,11 +28,12 @@ const Register = () => {
 
     //const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value })
 
-    useEffect(() => {
-        if(isAuthenticated) {
-            history.push('/dashboard')
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(isAuthenticated) {
+    //         //history.push('/dashboard')
+    //         return <Redirect to='/dashboard' />
+    //     }
+    // }, [])
 
     const submitHandler = e => {
         e.preventDefault()
@@ -40,8 +41,13 @@ const Register = () => {
             dispatch(setAlert('Password do not match', 'danger'))
         } else {
             dispatch(register({ name, email, password }))
+           
         }
     }
+
+    if(isAuthenticated) {
+        return <Redirect to='/dashboard' />
+    }  
 
 
     return (
