@@ -10,8 +10,8 @@ const AddExperience = () => {
     const [company, setCompany] = useState('')
     const [title, setTitle] = useState('')
     const [location, setLocation] = useState('')
-    const [fromDate, setFromDate] = useState('')
-    const [toDate, setToDate] = useState('')
+    const [from, setFromDate] = useState('')
+    const [to, setToDate] = useState('')
     const [current, setCurrent] = useState('')
     const [description, setDescription] = useState('')
 
@@ -25,8 +25,8 @@ const AddExperience = () => {
                 title, 
                 company, 
                 location, 
-                fromDate, 
-                toDate, 
+                from, 
+                to, 
                 current, 
                 description
             }))
@@ -78,7 +78,7 @@ const AddExperience = () => {
           </div>
           <div className="form-group">
             <h4>From Date</h4>
-            <input type="date" name="from" value={fromDate}
+            <input type="date" name="from" value={from}
             onChange={e => setFromDate(e.target.value)} />
           </div>
           <div className="form-group">
@@ -98,7 +98,7 @@ const AddExperience = () => {
             <input
               type="date"
               name="to"
-              value={toDate}
+              value={to}
               onChange={e => setToDate(e.target.value)}
               disabled={toDateDisabled ? 'disabled' : ''}
             />

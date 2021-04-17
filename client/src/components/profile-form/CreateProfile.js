@@ -49,7 +49,7 @@ const CreateProfile = () => {
     const createProfileSubmit = (e) => {
         e.preventDefault()
         console.log(formData)
-        dispatch(createProfile(formData, history))
+        dispatch(createProfile(formData))
         history.push('/dashboard')
     }
 

@@ -14,8 +14,10 @@ import Dashboard from './components/dashboard/Dashboard'
 import PrivateRoute from './components/routing/PrivateRoute'
 import CreateProfile from './components/profile-form/CreateProfile'
 import EditProfile from './components/profile-form/EditProfile'
-import addExperience from './components/profile-form/AddExperience'
-
+import AddExperience from './components/profile-form/AddExperience'
+import AddEducation from './components/profile-form/AddEducation'
+import Profiles from './components/profiles/Profiles'
+import Profile from './components/profile/Profile'
 
 
 if(localStorage.token) {
@@ -42,7 +44,10 @@ const App = () => {
             <Route exact path='/dashboard' component={Dashboard} />
             <Route exact path='/create-profile' component={CreateProfile} />
             <Route exact path='/edit-profile' component={EditProfile} />
-            <Route exact path='/add-experience' component={addExperience} />
+            <Route exact path='/add-experience' component={AddExperience} />
+            <Route exact path='/add-education' component={AddEducation} />
+            <Route exact path='/profiles' component={Profiles} />
+            <Route exact path='/profile/:id' component={Profile} />
           </Switch>
         </section>
     </Router>
