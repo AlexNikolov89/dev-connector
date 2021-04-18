@@ -9,7 +9,7 @@ const ProfileGithub = ({username}) => {
 
     const userProfile = useSelector(state => state.userProfile)
     const {repos} = userProfile;
-    console.log("🚀 ~ file: ProfileGithub.js ~ line 12 ~ ProfileGithub ~ userProfile", userProfile)
+    //console.log("🚀 ~ file: ProfileGithub.js ~ line 12 ~ ProfileGithub ~ userProfile", userProfile)
 
     useEffect(() => {
         dispatch(getGithubRepos(username))
@@ -18,8 +18,8 @@ const ProfileGithub = ({username}) => {
         <div className='profile-github'>
             <h2 className="text-primary my-1">Github Repos</h2>
             {repos === null ? <Spinner /> : (
-                repos.map(repo => {
-                    return <div key={repo._id} className='repo bg-white p-1 my-1'>
+                repos.map((repo, index) => {
+                    return <div key={index} className='repo bg-white p-1 my-1'>
                        <div>
                         <h4>
                             <a href={repo.html_url} target='_blank' rel='noopener norefeeer'>{repo.name}</a>
