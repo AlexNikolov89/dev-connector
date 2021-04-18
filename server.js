@@ -10,9 +10,7 @@ app.use(express.json({ extended: false }))
 // connect db
 connectDB()
 
-app.get('/', (req, res) => {
-    res.send('API Running')
-})
+
 
 // Define Routes
 app.use('/api/users', require('./routes/users'))
