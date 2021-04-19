@@ -7,6 +7,7 @@
   2. Express.js 
   3. React.js 
   4. React-Redux and Redux-thunk
+  5. Deployed with Heroku
 
 # API Endpoints
 
