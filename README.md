@@ -1,5 +1,7 @@
 # Landingpage
 
+![DevConnector Landing](https://user-images.githubusercontent.com/66255010/115201004-1e41ea00-a0f5-11eb-8444-ecfe3f927d40.png)
+
   - Exercise in a learning purpose done with 
   1. Node.js 
   2. Express.js 
