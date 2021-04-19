@@ -1,6 +1,6 @@
 # Landingpage
 
-  # Exercise in a learning purpose done with 
+  - Exercise in a learning purpose done with 
   1. Node.js 
   2. Express.js 
   3. React.js 
